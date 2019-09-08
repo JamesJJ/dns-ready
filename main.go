@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/jamiealquiza/envy"
 	"net"
+	"os"
 	"time"
 )
 
@@ -24,6 +25,12 @@ func main() {
 	gracefulStop()
 
 	runTime := time.Now().UnixNano()
+
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", os.Args[0])
+		flag.PrintDefaults()
+		fmt.Fprintf(flag.CommandLine.Output(), "\nMIT License. Copyright (c) 2019 JamesJJ. https://github.com/JamesJJ/dns-ready\n")
+	}
 
 	conf := config{
 		flag.String("host", "kube-dns.kube-system.svc.cluster.local", "hostname to resolve"),

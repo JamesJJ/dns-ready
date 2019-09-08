@@ -12,8 +12,6 @@ Sometimes we just need to wait until a hostname is resolvable in DNS.
 
   * Graceful exit means ending the program with return code zero.
 
-  * This can be used as an "init container" in Kubernetes ([docker image](https://hub.docker.com/r/jamesjj/dns-ready): `jamesjj/dns-ready`).
-
 
 ## Configuration:
 
@@ -28,4 +26,27 @@ Sometimes we just need to wait until a hostname is resolvable in DNS.
 | `-retries`     | `DNSREADY_RETRIES`     | 30                                     | Maximum number of attempts before graceful exit     |
 | `-verbose`     | `DNSREADY_VERBOSE`     | false                                  | Show each attempt on STDOUT                         |
 | `-silent`      | `DNSREADY_SILENT`      | false                                  | Do not show anything on STDOUT                      |
+
+
+
+### Use as a Kubernetes "init container":
+
+This can be used as an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#understanding-init-containers) in Kubernetes to ensure any containers that depend on DNS are not started until DNS is really available.
+
+*[Docker image](https://hub.docker.com/r/jamesjj/dns-ready): `jamesjj/dns-ready`*
+
+
+```
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: dns-ready
+        image: jamesjj/dns-ready
+      containers:
+      - ...
+        ...
+```
 
