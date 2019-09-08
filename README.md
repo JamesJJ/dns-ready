@@ -12,7 +12,7 @@ Sometimes we just need to wait until a hostname is resolvable in DNS.
 
   * Graceful exit means ending the program with return code zero.
 
-  * This can be used as an "init container" in Kubernetes.
+  * This can be used as an "init container" in Kubernetes ([docker image](https://hub.docker.com/r/jamesjj/dns-ready): `jamesjj/dns-ready`).
 
 
 ## Configuration:
