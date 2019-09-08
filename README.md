@@ -6,7 +6,7 @@
 
 Sometimes we just need to wait until a hostname is resolvable in DNS.
 
-  * This will attempt to resolve a hostname and exit gracefully if the DNS lookup suceeds, or the maximum number of attempts is reached.
+  * This will repeatedly attempt to resolve a hostname and then exit gracefully if the DNS lookup is successful, or when the maximum number of attempts is reached.
 
   * TERM and INT signals will cause immediate graceful exit.
 
