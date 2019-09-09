@@ -24,6 +24,8 @@ Sometimes we just need to wait until a hostname is resolvable in DNS.
 | `-pause`       | `DNSREADY_PAUSE`       | 800                                    | Milliseconds to sleep between attempts              |
 | `-timeout`     | `DNSREADY_TIMEOUT`     | 1200                                   | Timeout in milliseconds for each DNS lookup attempt |
 | `-retries`     | `DNSREADY_RETRIES`     | 30                                     | Maximum number of attempts before graceful exit     |
+| `-success`     | `DNSREADY_SUCCESS`     | 2                                      | Minimum successful resolutions before graceful exit |
+| `-exitcode`    | `DNSREADY_EXITCODE`    | false                                  | Exit with non-zero status code if unsuccessful      |
 | `-verbose`     | `DNSREADY_VERBOSE`     | false                                  | Show each attempt on STDOUT                         |
 | `-silent`      | `DNSREADY_SILENT`      | false                                  | Do not show anything on STDOUT                      |
 
