@@ -1,9 +1,5 @@
 # DNS Ready
 
-[![Docker Automated build](https://img.shields.io/docker/cloud/automated/jamesjj/dns-ready)](https://hub.docker.com/r/jamesjj/dns-ready/)
-[![Docker Automated build](https://img.shields.io/docker/cloud/build/jamesjj/dns-ready)](https://hub.docker.com/r/jamesjj/dns-ready/)
-
-
 Sometimes we just need to wait until a hostname is resolvable in DNS.
 
   * This will repeatedly attempt to resolve a hostname and then exit gracefully if the DNS lookup is successful, or when the maximum number of attempts is reached.
@@ -34,8 +30,6 @@ Sometimes we just need to wait until a hostname is resolvable in DNS.
 ### Use as a Kubernetes "init container":
 
 This can be used as an [init container](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/#understanding-init-containers) in Kubernetes to ensure any containers that depend on DNS are not started until DNS is really available.
-
-*[Docker image](https://hub.docker.com/r/jamesjj/dns-ready): `jamesjj/dns-ready`*
 
 
 ```
